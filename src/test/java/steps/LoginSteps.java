@@ -45,6 +45,12 @@ public class LoginSteps extends BaseUI {
         waitAndClick(dashboardPage.logoutButton);
     }
 
+    @Then("verify user failed to sign in")
+    public void verify_user_failed_to_sign_in() throws InterruptedException {
+        Thread.sleep(1000);
+        Assertions.assertTrue(driver.getCurrentUrl().contains("/login"));
+    }
+
 
 
 }
