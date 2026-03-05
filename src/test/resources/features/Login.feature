@@ -1,3 +1,4 @@
+@smoke @regression @loginTests
 Feature: all login related test scenarios
 
   Background:
@@ -21,6 +22,7 @@ Feature: all login related test scenarios
 #    And user clicks on sign in button
 #    Then verify user signed in successfully
 
+    @usersLogin
     Scenario Outline: verify all types of users can login
       When user enters username "<username>"
       And user enters password "<password>"
@@ -32,6 +34,7 @@ Feature: all login related test scenarios
         | mgr.wilson@mediflow.com   | Test@1234 |
         | nurse.garcia@mediflow.com | Test@1234 |
 
+    @usersFailLogin
     Scenario Outline: verify all types of users fail to login with invalid credentials
       When user enters username "<username>"
       And user enters password "<password>"
@@ -44,6 +47,8 @@ Feature: all login related test scenarios
         |                         | Test@1234 |
         | mgr.wilson@mediflow.com |           |
         |                         |           |
+
+
 
 
 
