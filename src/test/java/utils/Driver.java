@@ -22,14 +22,16 @@ public class Driver {
 
     public static WebDriver getDriver() {
 
-
-
         String browser = ConfigurationReader.getProperty("browser");
 
         if (driver != null) {
-            return driver;
+            try {
+                driver.getTitle(); // any lightweight command
+                return driver;
+            } catch (Exception ignored) {
+                closeDriver(); // session is dead
+            }
         }
-
 
         ChromeOptions options = new ChromeOptions();
 
@@ -50,7 +52,7 @@ public class Driver {
 
         switch (browser) {
             case "chrome":
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
                 break;
             case "firefox":
                 driver = new FirefoxDriver();
@@ -72,6 +74,16 @@ public class Driver {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 
         return driver;
+    }
+
+    public static void closeDriver() {
+        if (driver != null) {
+            try {
+                driver.quit();
+            } finally {
+                driver = null;
+            }
+        }
     }
 }
 

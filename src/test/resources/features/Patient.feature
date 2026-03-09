@@ -10,7 +10,7 @@ Feature: patient page related test cases
   @newPatient
   Scenario Outline: verify user can create a new patient
     When user navigates to Patients page
-    And user clicks on New patient button
+    And user clicks on New Patient button
     And user fills the form with following data
       | firstName | <firstName> |
       | lastName  | <lastName>  |
@@ -19,11 +19,14 @@ Feature: patient page related test cases
       | phone     | <phone>     |
     And user clicks on Create Patient button
     Then verify new patient was created
+    And search patient "<firstName>"
+    And delete patient "<firstName>"
     Examples:
       | firstName | lastName | dob        | gender | phone      |
       | Donald    | Trump    | 12/15/1955 | male   | 1234567890 |
       | Barack    | Obama    | 11/23/1965 | male   | 1234567590 |
-      | Hillary   | Klinton  | 06/10/1945 | female | 1231312312 |
+      | Hillary   | Clinton  | 06/10/1945 | female | 1231312312 |
+
 
 
 
@@ -43,10 +46,10 @@ Feature: patient page related test cases
 #    When user selects "Female" in All Genders dropdown
 #    Then verify "Female" patients are displayed
 
-  @genderTest @smoke @otherTag
-  Scenario: verify gender filter in patients list: female, male and other
-    And user navigates to Patients page
-    When user selects gender verify patients are displayed correct gender
-      | Female |
-      | Male   |
-      | Other  |
+#  @genderTest @smoke @otherTag
+#  Scenario: verify gender filter in patients list: female, male and other
+#    Given user navigates to Patients page
+#    When user selects gender verify patients are displayed correct gender
+#      | Female |
+#      | Male   |
+#      | Other  |

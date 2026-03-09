@@ -1,6 +1,7 @@
 package steps;
 
 import io.cucumber.java.*;
+import utils.Driver;
 
 public class Hooks {
 
@@ -11,6 +12,7 @@ public class Hooks {
 
     @After //runs after each scenario
     public void cleanup() {
+        Driver.closeDriver();
         System.out.println("this is after scenario");
     }
 
