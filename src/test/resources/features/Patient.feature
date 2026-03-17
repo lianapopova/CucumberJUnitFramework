@@ -33,23 +33,15 @@ Feature: patient page related test cases
 
 
 
-
-
-
-
-
-
-
-
 #  Scenario: verify gender filter in patients list: female, male and other
 #    And user navigates to Patients page
 #    When user selects "Female" in All Genders dropdown
 #    Then verify "Female" patients are displayed
 
-#  @genderTest @smoke @otherTag
-#  Scenario: verify gender filter in patients list: female, male and other
-#    Given user navigates to Patients page
-#    When user selects gender verify patients are displayed correct gender
-#      | Female |
-#      | Male   |
-#      | Other  |
+  @genderTest @smoke @otherTag
+  Scenario: verify gender filter in patients list: female, male and other
+    Given user navigates to Patients page
+    When user selects gender verify patients are displayed correct gender
+      | Female |
+      | Male   |
+      | Other  |

@@ -98,5 +98,4 @@ public class PatientSteps extends BaseUI {
         patientsPage.waitAndClick(patientsPage.deleteButton);
         patientsPage.waitAndClick(patientsPage.confirmDeleteButton);
     }
-
 }
