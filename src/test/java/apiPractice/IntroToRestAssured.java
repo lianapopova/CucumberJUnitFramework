@@ -49,7 +49,7 @@ public class IntroToRestAssured {
     public void testGetListOfPatients() {
         RequestSpecification request = RestAssured.given()
                 .baseUri("https://jvjdarxnrsqkkhkeotkc.supabase.co/functions/v1")
-                .header("Authorization", "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IjgwZGVjODU2LTQ2ZDktNGJhYy1hNDc4LTY4YzQ0ZTc2NWU4YSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2p2amRhcnhucnNxa2toa2VvdGtjLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiI4MzlkYmJiMC0wMDkzLTQ3MWYtYjE4NC1hMDc5MWYzMmIwNTQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzczNzkxNzUxLCJpYXQiOjE3NzM3ODgxNTEsImVtYWlsIjoiZHIucG9wb3ZhQG1lZGlmbG93LmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWxfdmVyaWZpZWQiOnRydWV9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNzczNzg4MTUxfV0sInNlc3Npb25faWQiOiI5MjA1MDg2MC05NjRhLTQxMmMtYjY3Yi0wZWVjMjk2NTY1ODciLCJpc19hbm9ueW1vdXMiOmZhbHNlfQ.3Ot595DqYeMwPVaJ6EIwKSKJR2Voj8sVaGgfXv4-qItALFwZz2-YqqEP3VRzBU4TbwP8giy0v6XIw9x2II9S9A");
+                .header("Authorization", "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IjgwZGVjODU2LTQ2ZDktNGJhYy1hNDc4LTY4YzQ0ZTc2NWU4YSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2p2amRhcnhucnNxa2toa2VvdGtjLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiI4MzlkYmJiMC0wMDkzLTQ3MWYtYjE4NC1hMDc5MWYzMmIwNTQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzczODAzMTE0LCJpYXQiOjE3NzM3OTk1MTQsImVtYWlsIjoiZHIucG9wb3ZhQG1lZGlmbG93LmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWxfdmVyaWZpZWQiOnRydWV9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNzczNzk5NTE0fV0sInNlc3Npb25faWQiOiJhZDc2YmExMi05ZjIxLTRhY2EtYTZhMC1lMjgxM2YzNTA1N2UiLCJpc19hbm9ueW1vdXMiOmZhbHNlfQ.nKe4CGfrl-WtZr2e_64HER_6XZYLlrd092mnfZs_-5fv4koEsPH5R2oblgyH-r65uM1UmeDjCeLYqLk9OUdhkg");
 
         Response response = request.get("/api-patients");
 
@@ -67,10 +67,25 @@ public class IntroToRestAssured {
         RequestSpecification request =
                 RestAssured.given().baseUri("https://jvjdarxnrsqkkhkeotkc.supabase.co/functions/v1")
                         .contentType(ContentType.JSON)
-                        .header("Authorization", "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IjgwZGVjODU2LTQ2ZDktNGJhYy1hNDc4LTY4YzQ0ZTc2NWU4YSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2p2amRhcnhucnNxa2toa2VvdGtjLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiI4MzlkYmJiMC0wMDkzLTQ3MWYtYjE4NC1hMDc5MWYzMmIwNTQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzczNzkxNzUxLCJpYXQiOjE3NzM3ODgxNTEsImVtYWlsIjoiZHIucG9wb3ZhQG1lZGlmbG93LmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWxfdmVyaWZpZWQiOnRydWV9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNzczNzg4MTUxfV0sInNlc3Npb25faWQiOiI5MjA1MDg2MC05NjRhLTQxMmMtYjY3Yi0wZWVjMjk2NTY1ODciLCJpc19hbm9ueW1vdXMiOmZhbHNlfQ.3Ot595DqYeMwPVaJ6EIwKSKJR2Voj8sVaGgfXv4-qItALFwZz2-YqqEP3VRzBU4TbwP8giy0v6XIw9x2II9S9A")
+                        .header("Authorization", "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IjgwZGVjODU2LTQ2ZDktNGJhYy1hNDc4LTY4YzQ0ZTc2NWU4YSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2p2amRhcnhucnNxa2toa2VvdGtjLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiI4MzlkYmJiMC0wMDkzLTQ3MWYtYjE4NC1hMDc5MWYzMmIwNTQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzczODAzMTE0LCJpYXQiOjE3NzM3OTk1MTQsImVtYWlsIjoiZHIucG9wb3ZhQG1lZGlmbG93LmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWxfdmVyaWZpZWQiOnRydWV9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNzczNzk5NTE0fV0sInNlc3Npb25faWQiOiJhZDc2YmExMi05ZjIxLTRhY2EtYTZhMC1lMjgxM2YzNTA1N2UiLCJpc19hbm9ueW1vdXMiOmZhbHNlfQ.nKe4CGfrl-WtZr2e_64HER_6XZYLlrd092mnfZs_-5fv4koEsPH5R2oblgyH-r65uM1UmeDjCeLYqLk9OUdhkg")
                         .body(requestBody.toString());
 
         Response response = request.put("/api-patients/PT-000162");
+
+        System.out.println("STATUS CODE: " + response.statusCode());
+        System.out.println("RESPONSE BODY: " + response.asPrettyString());
+    }
+
+    @Test
+    public void testGetAppointments() {
+        RequestSpecification request = RestAssured.given()
+                .baseUri("https://jvjdarxnrsqkkhkeotkc.supabase.co/functions/v1")
+                .header("Authorization", "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IjgwZGVjODU2LTQ2ZDktNGJhYy1hNDc4LTY4YzQ0ZTc2NWU4YSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2p2amRhcnhucnNxa2toa2VvdGtjLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiI4MzlkYmJiMC0wMDkzLTQ3MWYtYjE4NC1hMDc5MWYzMmIwNTQiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzczODAzMTE0LCJpYXQiOjE3NzM3OTk1MTQsImVtYWlsIjoiZHIucG9wb3ZhQG1lZGlmbG93LmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWxfdmVyaWZpZWQiOnRydWV9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNzczNzk5NTE0fV0sInNlc3Npb25faWQiOiJhZDc2YmExMi05ZjIxLTRhY2EtYTZhMC1lMjgxM2YzNTA1N2UiLCJpc19hbm9ueW1vdXMiOmZhbHNlfQ.nKe4CGfrl-WtZr2e_64HER_6XZYLlrd092mnfZs_-5fv4koEsPH5R2oblgyH-r65uM1UmeDjCeLYqLk9OUdhkg")
+                .queryParam("page", 2)
+                .queryParam("pageSize", 3)
+                .queryParam("status", "Cancelled");
+
+        Response response = request.get("/api-appointments");
 
         System.out.println("STATUS CODE: " + response.statusCode());
         System.out.println("RESPONSE BODY: " + response.asPrettyString());

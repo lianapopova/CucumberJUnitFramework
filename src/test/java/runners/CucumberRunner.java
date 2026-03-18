@@ -7,9 +7,9 @@ import static io.cucumber.core.options.Constants.*;
 
 @Suite
 @SelectClasspathResource("features") //path to your feature files
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "steps") // the path to step definitions
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "steps, steps.api") // the path to step definitions
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-report.html") //tells cucumber where to put reports
-@ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@newPatient")
+@ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@getAppointments")
 @ConfigurationParameter(key = EXECUTION_DRY_RUN_PROPERTY_NAME, value = "true")
 
 public class CucumberRunner {
